@@ -1,0 +1,9 @@
+version: '3'
+services:
+  my_site:
+    build: .
+    container_name: my_site_container
+    ports:
+      - "9000:80"
+    volumes:
+      - .:/code
