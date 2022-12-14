@@ -21,7 +21,6 @@ COPY requirements.txt /code
 # Instalamos los requerimientos de la aplicación
 RUN pip install -r requirements.txt
 
-
 ADD ./demo_site.conf /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80

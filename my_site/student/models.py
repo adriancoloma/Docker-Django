@@ -9,3 +9,7 @@ class Student(models.Model):
     age = models.IntegerField()
     #Create a field for the student's email
     email = models.EmailField()
+
+    #String
+    def __str__(self):
+        return self.name
