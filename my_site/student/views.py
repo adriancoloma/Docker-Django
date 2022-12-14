@@ -8,7 +8,8 @@ from .serializer import StudentSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-
+#import status
+from rest_framework import status
 #Create and endpoint to get all students
 class StudentList(APIView):
     def get(self, request):
@@ -21,3 +22,14 @@ class StudentList(APIView):
 
     def post(self):
         pass
+
+class AddStudent(APIView):
+    def post(self, request):
+        serializer = StudentSerializer(data=request.data)
+        print(serializer)
+        if serializer.is_valid():
+            print("entra")
+            serializer.save()
+            print("salio")
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
